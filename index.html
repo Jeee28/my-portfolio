@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An Jeanette G. Ruado — Data Entry Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#eff1ec;
+    --surface:#e7e9e0;
+    --ink:#1c2321;
+    --ink-soft:#4b544d;
+    --accent:#2f6f55;
+    --accent-soft:#e3ede8;
+    --amber:#c4801f;
+    --line:#d3d6cc;
+    --mono:'IBM Plex Mono', monospace;
+    --display:'Space Grotesk', sans-serif;
+    --body:'Inter', sans-serif;
+    --max:920px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--accent);}
+  a:focus-visible, button:focus-visible, .chip:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(239,241,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:16px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    font-family:var(--mono);
+    font-weight:600;
+    letter-spacing:0.02em;
+    font-size:14px;
+    color:var(--ink);
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .brand .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent);
+    display:inline-block;
+  }
+  nav.links{
+    display:flex;
+    gap:28px;
+  }
+  nav.links a{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink-soft);
+    transition:color .15s ease;
+  }
+  nav.links a:hover{color:var(--accent);}
+
+  .mobile-toggle{display:none;}
+
+  @media (max-width:640px){
+    nav.links{display:none;}
+  }
+
+  /* ---------- HERO / RECORD CARD ---------- */
+  .hero{
+    padding:64px 0 40px;
+  }
+  .record-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:36px 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .record-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:28px;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .record-meta span.tag{
+    color:var(--ink-soft);
+  }
+
+  .stamp{
+    font-family:var(--mono);
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:0.1em;
+    color:var(--accent);
+    border:1.5px dashed var(--accent);
+    border-radius:3px;
+    padding:6px 12px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transform:rotate(-3deg);
+    animation:stamp-in .5s ease-out;
+    white-space:nowrap;
+  }
+  @keyframes stamp-in{
+    from{opacity:0; transform:rotate(-3deg) scale(1.4);}
+    to{opacity:1; transform:rotate(-3deg) scale(1);}
+  }
+
+  .field-label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+    display:block;
+  }
+
+  h1.name{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(32px, 5vw, 46px);
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+  .role-title{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:18px;
+    color:var(--accent);
+    margin:0 0 24px;
+  }
+  .summary{
+    max-width:60ch;
+    color:var(--ink-soft);
+    font-size:15.5px;
+    margin-bottom:28px;
+  }
+
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+  }
+  .contact-chip{
+    font-family:var(--mono);
+    font-size:12.5px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:8px 12px;
+    text-decoration:none;
+    color:var(--ink);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .contact-chip:hover{border-color:var(--accent); color:var(--accent);}
+  .cta{
+    font-family:var(--mono);
+    font-size:12.5px;
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:3px;
+    padding:9px 16px;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:background .15s ease;
+  }
+  .cta:hover{background:var(--accent);}
+
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{
+    padding:52px 0;
+    border-top:1px solid var(--line);
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:32px;
+  }
+  .section-id{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--amber);
+    letter-spacing:0.06em;
+  }
+  .section-title{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:24px;
+    margin:0;
+  }
+
+  /* quick facts */
+  .facts{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    margin-top:28px;
+  }
+  .fact{
+    background:var(--paper);
+    padding:16px;
+  }
+  .fact .field-label{margin-bottom:8px;}
+  .fact .val{
+    font-family:var(--body);
+    font-weight:600;
+    font-size:14px;
+  }
+  @media (max-width:640px){
+    .facts{grid-template-columns:1fr 1fr;}
+  }
+
+  /* experience records */
+  .record{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:20px;
+    padding:24px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .record:last-child{border-bottom:none;}
+  .record-id{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--amber);
+    padding-top:2px;
+  }
+  .record-body h3{
+    font-family:var(--display);
+    font-size:17px;
+    margin:0 0 2px;
+    font-weight:600;
+  }
+  .record-org{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-bottom:12px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .record-org .period{color:var(--accent);}
+  .record-body ul{
+    margin:0;
+    padding-left:18px;
+    color:var(--ink-soft);
+    font-size:14.5px;
+  }
+  .record-body li{margin-bottom:6px;}
+  @media (max-width:640px){
+    .record{grid-template-columns:1fr;}
+    .record-id{padding-top:0;}
+  }
+
+  /* skills */
+  .skill-group{
+    margin-bottom:24px;
+  }
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group h4{
+    font-family:var(--mono);
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    margin:0 0 12px;
+    font-weight:500;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    font-family:var(--mono);
+    font-size:13px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:7px 11px;
+    cursor:default;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:border-color .15s ease, background .15s ease;
+    position:relative;
+  }
+  .chip .tick{
+    opacity:0;
+    color:var(--accent);
+    transition:opacity .15s ease;
+    font-weight:600;
+  }
+  .chip:hover{
+    border-color:var(--accent);
+    background:var(--accent-soft);
+  }
+  .chip:hover .tick{opacity:1;}
+
+  /* projects */
+  .project-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:26px 28px;
+  }
+  .project-card h3{
+    font-family:var(--display);
+    font-size:19px;
+    margin:0 0 6px;
+  }
+  .project-link{
+    font-family:var(--mono);
+    font-size:12.5px;
+    margin-bottom:14px;
+    display:inline-block;
+  }
+  .project-card ul{
+    margin:0;
+    padding-left:18px;
+    color:var(--ink-soft);
+    font-size:14.5px;
+  }
+  .project-card li{margin-bottom:6px;}
+  .stack-row{
+    margin-top:16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .stack-tag{
+    font-family:var(--mono);
+    font-size:11.5px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:4px 9px;
+    color:var(--ink-soft);
+  }
+
+  /* education */
+  .edu-row{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:baseline;
+  }
+  .edu-row h3{
+    font-family:var(--display);
+    font-size:17px;
+    margin:0;
+  }
+  .edu-period{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--accent);
+  }
+  .edu-school{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    margin-top:4px;
+  }
+
+  /* footer / contact */
+  footer{
+    padding:52px 0 60px;
+    border-top:1px solid var(--line);
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:32px;
+  }
+  .footer-note{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    max-width:40ch;
+  }
+  .footer-contact{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .footer-contact a, .footer-contact span{
+    font-family:var(--mono);
+    font-size:13px;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .footer-contact a:hover{color:var(--accent);}
+  .footer-bottom{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>AJR / RECORDS</a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;">
+    <div class="wrap">
+      <div class="record-card">
+        <div class="record-meta">
+          <span class="tag">RECORD NO. 0001 &nbsp;/&nbsp; APPLICANT FILE</span>
+          <span class="stamp">✓ VERIFIED — ENCODER / DATA ENTRY</span>
+        </div>
+
+        <span class="field-label">Name</span>
+        <h1 class="name">An Jeanette G. Ruado</h1>
+        <p class="role-title">Data Entry Specialist — Encoder &amp; Records Verifier</p>
+
+        <p class="summary">
+          Recent Computer Science graduate with hands-on experience in data entry, records verification,
+          and inventory documentation from a government office internship — paired with a technical
+          foundation in databases and systems built through an independently developed full-stack thesis
+          project. Detail-oriented, adaptable, and quick to learn new tools and workflows.
+        </p>
+
+        <div class="contact-row">
+          <a class="contact-chip" href="mailto:ruadoanjeanette08@gmail.com">✉ ruadoanjeanette08@gmail.com</a>
+          <a class="contact-chip" href="tel:+639459726926">☎ +63 945 972 6926</a>
+          <span class="contact-chip" style="cursor:default;">in LinkedIn</span>
+          <a class="cta" href="#contact">Get in touch →</a>
+        </div>
+      </div>
+
+      <div class="facts">
+        <div class="fact">
+          <span class="field-label">Education</span>
+          <span class="val">BS Computer Science</span>
+        </div>
+        <div class="fact">
+          <span class="field-label">Location</span>
+          <span class="val">Philippines</span>
+        </div>
+        <div class="fact">
+          <span class="field-label">Core Tools</span>
+          <span class="val">Excel · Sheets · MySQL</span>
+        </div>
+        <div class="fact">
+          <span class="field-label">Status</span>
+          <span class="val">Open to work</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-id">§ 01</span>
+        <h2 class="section-title">About</h2>
+      </div>
+      <p style="max-width:65ch; color:var(--ink-soft); font-size:15.5px;">
+        My background sits at the intersection of careful, repetitive data work and the technical
+        understanding of how that data is actually stored and used. As an Encoder–Verifier, my job was
+        to catch what didn't add up before it went any further — and that same instinct carried into
+        building a database-backed system from scratch for my thesis. I'm comfortable in spreadsheets
+        all day, but I also understand what's happening underneath them, which makes me faster to train
+        and quicker to spot errors that come from process, not just typos.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-id">§ 02</span>
+        <h2 class="section-title">Experience</h2>
+      </div>
+
+      <div class="record">
+        <div class="record-id">REC-01</div>
+        <div class="record-body">
+          <h3>Encoder – Verifier</h3>
+          <div class="record-org">
+            <span>Nautilus</span>
+            <span class="period">Apr 2026 – Aug 2026</span>
+          </div>
+          <ul>
+            <li>Performed data entry and verification of documents and records, ensuring information was accurate.</li>
+            <li>Reviewed entries for accuracy, completeness, and consistency, flagging inconsistencies before submission.</li>
+            <li>Identified errors and discrepancies and made necessary corrections to maintain data integrity.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="record">
+        <div class="record-id">REC-02</div>
+        <div class="record-body">
+          <h3>OJT Intern — IT &amp; Administrative Support</h3>
+          <div class="record-org">
+            <span>General Services Office (GSO), Municipality of Sariaya</span>
+            <span class="period">Feb 2026 – Apr 2026</span>
+          </div>
+          <ul>
+            <li>Streamlined government inventory management by building Excel-based classification systems for high- and low-value assets, using formulas and data grouping to reduce encoding time and minimize error across large datasets.</li>
+            <li>Led end-to-end production of asset custodian labels using Photoshop and Microsoft Word, from design through department-wide installation, keeping municipal equipment properly tagged and traceable for compliance and audit.</li>
+            <li>Consolidated and structured multi-category records — fuel slips, ICS data, vehicle plate and control numbers — across Excel and Google Sheets, using date-based grouping to improve traceability and cut retrieval time for audit-ready reporting.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-id">§ 03</span>
+        <h2 class="section-title">Skills</h2>
+      </div>
+
+      <div class="skill-group">
+        <h4>Data &amp; Records</h4>
+        <div class="chips">
+          <span class="chip">Data Entry &amp; Verification <span class="tick">✓</span></span>
+          <span class="chip">Records Management <span class="tick">✓</span></span>
+          <span class="chip">Database Fundamentals (MySQL) <span class="tick">✓</span></span>
+          <span class="chip">Audit-Ready Reporting <span class="tick">✓</span></span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Productivity Tools</h4>
+        <div class="chips">
+          <span class="chip">Microsoft Excel <span class="tick">✓</span></span>
+          <span class="chip">Google Sheets <span class="tick">✓</span></span>
+          <span class="chip">Microsoft Word <span class="tick">✓</span></span>
+          <span class="chip">Photoshop <span class="tick">✓</span></span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Technical</h4>
+        <div class="chips">
+          <span class="chip">JavaScript <span class="tick">✓</span></span>
+          <span class="chip">HTML/CSS <span class="tick">✓</span></span>
+          <span class="chip">C++ <span class="tick">✓</span></span>
+          <span class="chip">MySQL <span class="tick">✓</span></span>
+          <span class="chip">MongoDB <span class="tick">✓</span></span>
+          <span class="chip">Git / GitHub <span class="tick">✓</span></span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Strengths</h4>
+        <div class="chips">
+          <span class="chip">Attention to Detail <span class="tick">✓</span></span>
+          <span class="chip">Fast Learner <span class="tick">✓</span></span>
+          <span class="chip">Problem-Solving <span class="tick">✓</span></span>
+          <span class="chip">Adaptability <span class="tick">✓</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-id">§ 04</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
+
+      <div class="project-card">
+        <span class="field-label">PRJ-01</span>
+        <h3>Barangay Management System</h3>
+        <a class="project-link" href="https://bms-management-system-v1.vercel.app" target="_blank" rel="noopener">
+          bms-management-system-v1.vercel.app ↗
+        </a>
+        <ul>
+          <li>Independently built a full-stack web application to digitize barangay administrative processes — scheduling, incident reports, and document requests — replacing manual, paper-based workflows.</li>
+          <li>Designed the database structure and implemented core CRUD data management in MySQL, enabling reliable storage and retrieval of records and transactions.</li>
+          <li>Resolved technical issues throughout development, keeping the system stable ahead of release.</li>
+          <li>Managed deployment end-to-end — backend on Render, frontend on Vercel — across different user roles.</li>
+        </ul>
+        <div class="stack-row">
+          <span class="stack-tag">Vue.js</span>
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">Express.js</span>
+          <span class="stack-tag">MySQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-id">§ 05</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="edu-row">
+        <h3>Bachelor of Science in Computer Science (BSCS)</h3>
+        <span class="edu-period">2022 – 2026</span>
+      </div>
+      <div class="edu-school">Manuel S. Enverga University Foundation – Candelaria, Inc.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:24px;">
+      <span class="section-id">§ 06</span>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="footer-grid">
+      <p class="footer-note">
+        Open to data entry, encoding, and administrative support roles. References available upon request.
+      </p>
+      <div class="footer-contact">
+        <a href="mailto:ruadoanjeanette08@gmail.com">✉ ruadoanjeanette08@gmail.com</a>
+        <a href="tel:+639459726926">☎ +63 945 972 6926</a>
+        <span>in LinkedIn — add link</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>AN JEANETTE G. RUADO</span>
+      <span>RECORD STATUS: OPEN TO WORK</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
