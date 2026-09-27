@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>An Jeanette G. Ruado — Data Entry Specialist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>An Jeanette G. Ruado — QA & Data Specialist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -22,9 +22,31 @@
     --body:'Inter', sans-serif;
     --max:920px;
   }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#191d1b;
+      --surface:#20251f;
+      --ink:#eef1ea;
+      --ink-soft:#a9b3a5;
+      --accent:#57b98d;
+      --accent-soft:#233229;
+      --amber:#e0a94c;
+      --line:#32372f;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#191d1b;
+    --surface:#20251f;
+    --ink:#eef1ea;
+    --ink-soft:#a9b3a5;
+    --accent:#57b98d;
+    --accent-soft:#233229;
+    --amber:#e0a94c;
+    --line:#32372f;
+  }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top, 0px);}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
@@ -37,6 +59,8 @@
     font-family:var(--body);
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top, 0px);
+    padding-bottom:env(safe-area-inset-bottom, 0px);
   }
 
   a{color:var(--accent);}
@@ -59,7 +83,12 @@
     background:rgba(239,241,236,0.92);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
+    padding-top:env(safe-area-inset-top, 0px);
   }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) header.site{ background:rgba(25,29,27,0.92); }
+  }
+  :root[data-theme="dark"] header.site{ background:rgba(25,29,27,0.92); }
   .nav-inner{
     max-width:var(--max);
     margin:0 auto;
@@ -98,8 +127,6 @@
     transition:color .15s ease;
   }
   nav.links a:hover{color:var(--accent);}
-
-  .mobile-toggle{display:none;}
 
   @media (max-width:640px){
     nav.links{display:none;}
@@ -376,6 +403,7 @@
     font-size:12.5px;
     margin-bottom:14px;
     display:inline-block;
+    overflow-wrap:anywhere;
   }
   .project-card ul{
     margin:0;
@@ -465,6 +493,9 @@
     flex-wrap:wrap;
     gap:8px;
   }
+
+  /* wide content never breaks layout */
+  .scrollable{overflow-x:auto;}
 </style>
 </head>
 <body>
@@ -490,24 +521,26 @@
       <div class="record-card">
         <div class="record-meta">
           <span class="tag">RECORD NO. 0001 &nbsp;/&nbsp; APPLICANT FILE</span>
-          <span class="stamp">✓ VERIFIED — ENCODER / DATA ENTRY</span>
         </div>
 
         <span class="field-label">Name</span>
         <h1 class="name">An Jeanette G. Ruado</h1>
-        <p class="role-title">Data Entry Specialist — Encoder &amp; Records Verifier</p>
 
         <p class="summary">
-          Recent Computer Science graduate with hands-on experience in data entry, records verification,
-          and inventory documentation from a government office internship — paired with a technical
-          foundation in databases and systems built through an independently developed full-stack thesis
-          project. Detail-oriented, adaptable, and quick to learn new tools and workflows.
+          Recent Computer Science graduate with hands-on experience in functional testing, data entry,
+          and verification of documents and records, built through a full-stack thesis project and a
+          government administrative internship. Skilled in Microsoft Excel, Google Sheets, and Microsoft Word for data 
+          management, with strong attention to detail and proofreading ability for identifying and correcting errors.
+          Equipped with a foundation in JavaScript, HTML, CSS, MySQL, and Git/GitHub. Detail-oriented, 
+          analytical, and a fast learner, with a track record of streamlining data workflows and following 
+          structured processes with sound judgment. Seeking an entry-level opportunity to apply these skills,
+          contribute to team goals, and grow professionally in a collaborative environment.
         </p>
 
         <div class="contact-row">
           <a class="contact-chip" href="mailto:ruadoanjeanette08@gmail.com">✉ ruadoanjeanette08@gmail.com</a>
           <a class="contact-chip" href="tel:+639459726926">☎ +63 945 972 6926</a>
-          <span class="contact-chip" style="cursor:default;">in LinkedIn</span>
+          <a class="contact-chip" href="https://www.linkedin.com/in/anjeruado/" target="_blank" rel="noopener">in LinkedIn</a>
           <a class="cta" href="#contact">Get in touch →</a>
         </div>
       </div>
@@ -527,7 +560,7 @@
         </div>
         <div class="fact">
           <span class="field-label">Status</span>
-          <span class="val">Open to work</span>
+          <span class="val"> Available for new opportunities</span>
         </div>
       </div>
     </div>
@@ -586,7 +619,7 @@
           <ul>
             <li>Streamlined government inventory management by building Excel-based classification systems for high- and low-value assets, using formulas and data grouping to reduce encoding time and minimize error across large datasets.</li>
             <li>Led end-to-end production of asset custodian labels using Photoshop and Microsoft Word, from design through department-wide installation, keeping municipal equipment properly tagged and traceable for compliance and audit.</li>
-            <li>Consolidated and structured multi-category records — fuel slips, ICS data, vehicle plate and control numbers — across Excel and Google Sheets, using date-based grouping to improve traceability and cut retrieval time for audit-ready reporting.</li>
+            <li>Consolidated and structured multi-category records, including fuel slips, ICS data, and vehicle documentation, across Excel and Google Sheets, using date-based grouping to improve traceability and cut retrieval time for audit-ready reporting.</li>
           </ul>
         </div>
       </div>
@@ -607,7 +640,6 @@
           <span class="chip">Data Entry &amp; Verification <span class="tick">✓</span></span>
           <span class="chip">Records Management <span class="tick">✓</span></span>
           <span class="chip">Database Fundamentals (MySQL) <span class="tick">✓</span></span>
-          <span class="chip">Audit-Ready Reporting <span class="tick">✓</span></span>
         </div>
       </div>
 
@@ -617,7 +649,6 @@
           <span class="chip">Microsoft Excel <span class="tick">✓</span></span>
           <span class="chip">Google Sheets <span class="tick">✓</span></span>
           <span class="chip">Microsoft Word <span class="tick">✓</span></span>
-          <span class="chip">Photoshop <span class="tick">✓</span></span>
         </div>
       </div>
 
@@ -699,18 +730,19 @@
       <h2 class="section-title">Contact</h2>
     </div>
     <div class="footer-grid">
-      <p class="footer-note">
-        Open to data entry, encoding, and administrative support roles. References available upon request.
+     <p class="footer-note">
+       Open to entry-level opportunities where I can apply my skills and continue growing professionally.
+       References available upon request.
       </p>
       <div class="footer-contact">
         <a href="mailto:ruadoanjeanette08@gmail.com">✉ ruadoanjeanette08@gmail.com</a>
         <a href="tel:+639459726926">☎ +63 945 972 6926</a>
-        <span>in LinkedIn — add link</span>
+        <a href="https://www.linkedin.com/in/anjeruado/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>AN JEANETTE G. RUADO</span>
-      <span>RECORD STATUS: OPEN TO WORK</span>
+      <span>STATUS: AVAILABLE FOR NEW OPPORTUNITIES</span>
     </div>
   </div>
 </footer>
